@@ -153,9 +153,6 @@
   }
 }
 
-@utility text-balance {
-  text-wrap: balance;
-}
 
 @utility gradient-hero {
   background-image: var(--gradient-hero);
