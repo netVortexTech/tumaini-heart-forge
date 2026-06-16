@@ -77,19 +77,48 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { name: "theme-color", content: "#1d3a8a" },
+      { title: "Tumaini Letu Nshamba — Empowering Tanzania's Vulnerable Communities" },
+      {
+        name: "description",
+        content:
+          "Tumaini Letu Nshamba is a Tanzanian NGO empowering orphans, vulnerable children and women in Kagera Region through education, health, economic empowerment and environmental action since 1992.",
+      },
+      { property: "og:site_name", content: "Tumaini Letu Nshamba" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: appCss,
+        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "NGO",
+          name: "Tumaini Letu Nshamba",
+          alternateName: "Tumaini Letu",
+          url: "/",
+          foundingDate: "1992",
+          description:
+            "Community-driven Tanzanian NGO empowering vulnerable children and women in Kagera Region.",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "P.O. Box 278",
+            addressLocality: "Muleba",
+            addressRegion: "Kagera",
+            addressCountry: "TZ",
+          },
+          email: "tumainiletuorg@gmail.com",
+          telephone: "+255 755 925 228",
+        }),
       },
     ],
   }),
