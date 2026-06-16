@@ -87,6 +87,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Tumaini Letu Nshamba" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Tumaini Letu Nshamba — Empowering Tanzania's Vulnerable Communities" },
+      { name: "twitter:title", content: "Tumaini Letu Nshamba — Empowering Tanzania's Vulnerable Communities" },
+      { name: "description", content: "Tumaini Elevate is a modern, responsive NGO website designed to showcase humanitarian impact and engage donors." },
+      { property: "og:description", content: "Tumaini Elevate is a modern, responsive NGO website designed to showcase humanitarian impact and engage donors." },
+      { name: "twitter:description", content: "Tumaini Elevate is a modern, responsive NGO website designed to showcase humanitarian impact and engage donors." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/711eb5ee-b298-47f0-b1ca-a8330869aaaa/id-preview-350405bb--c200cae0-92ef-4fd6-931c-3569c9623d25.lovable.app-1781621033686.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/711eb5ee-b298-47f0-b1ca-a8330869aaaa/id-preview-350405bb--c200cae0-92ef-4fd6-931c-3569c9623d25.lovable.app-1781621033686.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
