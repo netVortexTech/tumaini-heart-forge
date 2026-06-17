@@ -36,7 +36,7 @@ export const Route = createFileRoute("/team/$slug")({
 
 function TeamMemberPage() {
   const { member } = Route.useLoaderData();
-  const initials = member.name.split(" ").map((s) => s[0]).slice(0, 2).join("");
+  const initials = member.name.split(" ").map((s: string) => s[0]).slice(0, 2).join("");
   const others = TEAM.filter((m) => m.slug !== member.slug).slice(0, 4);
 
   return (

@@ -17,6 +17,12 @@ import g3 from "@/assets/gallery-3.jpg";
 import g4 from "@/assets/gallery-4.jpg";
 import g5 from "@/assets/gallery-5.jpg";
 import g6 from "@/assets/gallery-6.jpg";
+import upload1 from "@/assets/uploads/image.jpg.asset.json";
+import upload2 from "@/assets/uploads/image-2.jpg.asset.json";
+import upload3 from "@/assets/uploads/image-3.jpg.asset.json";
+import upload4 from "@/assets/uploads/image-4.jpg.asset.json";
+import upload5 from "@/assets/uploads/image-5.jpg.asset.json";
+import upload6 from "@/assets/uploads/image-6.jpg.asset.json";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -32,6 +38,12 @@ export const Route = createFileRoute("/gallery")({
 });
 
 const PHOTOS = [
+  { src: upload1.url, cat: "Children", caption: "One-on-one learning at a Tumaini Letu ECD center", h: "tall" },
+  { src: upload4.url, cat: "Programs", caption: "Child health check at a community clinic day", h: "tall" },
+  { src: upload2.url, cat: "Community", caption: "Community gathering in Muleba District", h: "med" },
+  { src: upload3.url, cat: "Programs", caption: "Group session led by our community facilitator", h: "med" },
+  { src: upload6.url, cat: "Women", caption: "Women smallholder farmer tending her plot", h: "tall" },
+  { src: upload5.url, cat: "Community", caption: "Reforestation site and community gathering", h: "short" },
   { src: hero, cat: "Children", caption: "Joyful pre-schoolers at a Tumaini Letu ECD center", h: "tall" },
   { src: g1, cat: "Children", caption: "Children playing outside our Nshamba center", h: "tall" },
   { src: women, cat: "Women", caption: "HANURA savings group meeting", h: "med" },
