@@ -3,13 +3,24 @@
 //   - tanstackStart, viteReact, tailwindcss, tsConfigPaths, nitro (build-only using cloudflare as a default target),
 //     componentTagger (dev-only), VITE_* env injection, @ path alias, React/TanStack dedupe,
 //     error logger plugins, and sandbox detection (port/host/strictPort).
-// You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+
+// Allow overriding the Nitro deploy target via env so the same repo
+// can deploy on Lovable (cloudflare), Netlify, or Vercel.
+// Set DEPLOY_TARGET=netlify on Netlify, DEPLOY_TARGET=vercel on Vercel.
+const deployTarget = process.env.DEPLOY_TARGET ?? process.env.NITRO_PRESET;
+
+const presetMap: Record<string, string> = {
+  netlify: "netlify",
+  vercel: "vercel",
+  cloudflare: "cloudflare_module",
+};
+
+const nitroPreset = deployTarget ? presetMap[deployTarget] ?? deployTarget : undefined;
 
 export default defineConfig({
   tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
     server: { entry: "server" },
   },
+  ...(nitroPreset ? { nitro: { preset: nitroPreset } } : {}),
 });
