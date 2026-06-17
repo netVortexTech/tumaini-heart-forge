@@ -1,7 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Target, Eye, Compass, Award, Users, Calendar } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Target, Eye, Compass, Award, Users, Calendar, ArrowRight } from "lucide-react";
 import { SiteLayout, PageHero } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
+import { TEAM } from "@/lib/team";
 
 import about from "@/assets/women-empowerment.jpg";
 import team from "@/assets/gallery-2.jpg";
@@ -19,18 +20,6 @@ export const Route = createFileRoute("/about")({
   component: AboutPage,
 });
 
-const TEAM = [
-  { name: "Kachocho R. Timanywa", role: "Executive Director" },
-  { name: "Adivela Rugalabamu", role: "Programs Manager" },
-  { name: "Leonard Mtapima", role: "Monitoring & Evaluation Coordinator" },
-  { name: "Lisberth Kahwa", role: "Finance Manager & Administrator" },
-  { name: "Frola Rwantege", role: "Education Coordinator" },
-  { name: "Abimeleck Richard", role: "Senior ECD & Child Protection Specialist" },
-  { name: "Johansen Rwegoshora", role: "Data Clerk / Field Officer" },
-  { name: "Anna Kashabano", role: "Office Secretary" },
-  { name: "Shani Katela", role: "Field Officer / Community Mobilizer" },
-  { name: "Amon Ngemela", role: "Driver" },
-];
 
 const VALUES = [
   "Transparency", "Accountability", "Mutual Respect", "Fair Dealing",
@@ -219,16 +208,21 @@ function AboutPage() {
 
           <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {TEAM.map((m, i) => (
-              <Reveal key={m.name} delay={i * 40}>
-                <div className="flex items-center gap-4 rounded-2xl bg-card border border-border p-5 card-lift">
+              <Reveal key={m.slug} delay={i * 40}>
+                <Link
+                  to="/team/$slug"
+                  params={{ slug: m.slug }}
+                  className="flex items-center gap-4 rounded-2xl bg-card border border-border p-5 card-lift group"
+                >
                   <div className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl gradient-hero text-white font-display font-extrabold">
-                    {m.name.split(" ").map((s) => s[0]).slice(0, 2).join("")}
+                    {m.name.split(" ").map((s: string) => s[0]).slice(0, 2).join("")}
                   </div>
-                  <div className="min-w-0">
-                    <div className="font-display font-extrabold text-base text-foreground">{m.name}</div>
-                    <div className="text-xs text-muted-foreground mt-0.5">{m.role}</div>
+                  <div className="min-w-0 flex-1">
+                    <div className="font-display font-extrabold text-base text-foreground truncate group-hover:text-primary transition-colors">{m.name}</div>
+                    <div className="text-xs text-muted-foreground mt-0.5 truncate">{m.role}</div>
                   </div>
-                </div>
+                  <ArrowRight className="h-4 w-4 text-muted-foreground shrink-0 group-hover:text-primary group-hover:translate-x-0.5 transition-all" />
+                </Link>
               </Reveal>
             ))}
           </div>
